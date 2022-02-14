@@ -1,32 +1,31 @@
-Update
+Mise à jour
 ======
 
 .. note::
 
-   As for every update process, you have to backup some data before processing any upgrade:
+  Comme pour tout processus de mise à jour, vous devez sauvegarder certaines données avant de commencer le processus de mise à jour:
+   * **sauvegardez votre base de donnée**;
+   * sauvegardez votre répertoire `config`, pour votre fichier clé GLPI (`config/glpi.key` ou `config/glpicrypt.key`) qui est généré aléatoirement;
+   * sauvegardez votre répertoire `files` , il contient les fichiers générés par les utilisateurs et les plugins, comme les document téléversés;
+   * sauvegarder vos répertoires `marketplace` et `plugins`.
 
-   * **backup your database**;
-   * backup your `config` directory, especially for your GLPI key file (`config/glpi.key` or `config/glpicrypt.key`) which is randomly generated;
-   * backup your `files` directory, it contains users and plugins generated files, like uploaded documents;
-   * backup your `marketplace` and `plugins` directory.
+Voici les étapes pour mettre à jour GLPI:
 
-Here are the steps to update GLPI:
+* Téléchargez la dernière version de GLPI.
+* Assurez vous que le répertoire de destination est vide et désarchivez les fichiers ici.
+* Restaurez les répertoires `config`, `files`, `marketplace` et `plugins` précédemment sauvegardés.
+* Ouvrez maintenant l'URL de l'instance GLPI dans votre navigateur, ou (recommandé) utilisez `php bin/console db:update` :doc:`command line tools <command-line>`.
 
-* Download latest GLPI version.
-* Ensure the target directory is empty and extract files there.
-* Restore the previously backed up `config`, `files`, `marketplace` and `plugins` directory.
-* Then open the GLPI instance URI in your browser, or (recommended) use the `php bin/console db:update` :doc:`command line tools <command-line>`.
+.. attention::
 
-.. warning::
+   Dès qu'une nouvelle version des fichiers de GLPI est détectée, vous ne pourrez pas utiliser l'application tant que le processus de mise à jour n'est pas terminé.
 
-    As soon as a new version of GLPI files is detected, you will not be able to use the application until the update process has been done.
+.. attention::
 
-.. warning::
+    Vous ne devez pas essayer de restaurer votre sauvegarde de la basse de donnée sur une base de donnée non vide (Dit, une base de données à été partiellement migrée pour une raison inconnue).
 
-    You should not try to restore a database backup on a non empty database (say, a database that has been partially migrated for any reason).
-
-    Make sure your database is empty before restoring your backup and try to update, and repeat on fail.
+    Spoyez sur que votre base de donnée est vide avant de restaurer votre sauvegarde et essayez de mettre à jout, répétez en cas d'échec.
 
 .. note::
 
-    Update process will automatically disable your plugins.
+   Les processus de mise à jour désactivera automatiquement vos plugins.
