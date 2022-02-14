@@ -1,3 +1,7 @@
+
+# Version Françisée de la documentation d'installation de GLPI "GLPI installation documentation"
+
+
 # GLPI installation documentation
 
 [![Documentation Status](https://readthedocs.org/projects/glpi-install/badge/?version=latest)](http://glpi-install.readthedocs.io/en/latest/?badge=latest)
